@@ -1,0 +1,21 @@
+<div class="w-full min-h-screen flex">
+  <div class="w-4/5 border-r-yellow-500 border-r-4">
+    <app-todo-lists></app-todo-lists>
+  </div>
+  <div class="w-1/5 bg-neutral-900">
+    <div class="h-1/6 flex justify-center items-center">
+      <button
+        class="w-40 h-11 flex justify-center items-center bg-green-600 rounded-xl hover:-translate-y-1 hover:scale-110 hover:brightness-200 duration-300 font-medium text-base"
+        (click)="modalService.open()"
+      >
+        Add new ToDo
+      </button>
+      <app-modal *ngIf="modalService.isVisible$ | async">
+        <app-todo-add></app-todo-add>
+      </app-modal>
+    </div>
+    <div class="h-5/6">
+      <app-edit-todo></app-edit-todo>
+    </div>
+  </div>
+</div>

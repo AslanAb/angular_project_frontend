@@ -1,0 +1,26 @@
+<div class='m-2'>
+
+  <b>Задача 03</b> <br/>
+  Все то же самое что и в задании 2, только randomNumber должен получаться с сервера:<br />
+  <code>GET http://localhost:3000/randomNumber</code> <br />
+  На момент получения данных с сервера кнопка "add random number" должна быть задизейблена
+</div>
+
+<div class='m-2'>
+  <button (click)="onClick()" [disabled]="isLoading$$ | async"  class='btn btn-primary'>Add random number</button>
+</div>
+
+<div class='m-2 row'>
+  <div  class='col col-3'>
+    <div >Numbers in collection:</div>
+    <div *ngFor="let item of randomNumbers$$ | async">{{item}}</div>
+  </div>
+
+  <div class='col col-3' style='color: black'>
+    <div>Statistics: (вторая часть задачи)</div>
+    <div>Count: {{ countOfNumbers$$ | async }}</div>
+    <div>Min: {{ minOfAllNumbers$$ | async }}</div>
+    <div>Max: {{maxOfAllNumbers$$ | async}}</div>
+    <div>Average: {{ averageNumber$$ | async}}</div>
+  </div>
+</div>

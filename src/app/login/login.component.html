@@ -1,0 +1,23 @@
+<div class="login">
+  <ul class="login_list">
+    <li *ngFor="let item of items">
+      <button
+        type="button"
+        class="btn btn-info"
+        [disabled]="isButtonDisabled$$(item) | async"
+        (click)="addDigit(item)"
+        >{{ item }}
+      </button>
+    </li>
+    <li>
+      <button class="btn btn-primary" (click)="removeDigit()">&lt;</button>
+    </li>
+  </ul>
+  <div class="login_code">{{ loginCode$$ | async }}</div>
+  <button class="btn btn-success" [disabled]="loginButtonDisabled$$ | async" (click)="onLogin()">Login</button>
+</div>
+
+<hr />
+<div class="d-flex justify-content-center">
+  <app-counter></app-counter>
+</div>

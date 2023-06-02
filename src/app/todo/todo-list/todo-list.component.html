@@ -1,0 +1,18 @@
+<ng-container>
+  <div class="bg-black pt-20 pb-20 h-full grid grid-cols-3 gap-12 pr-20 pl-20">
+    <div class="w-full h-full rounded-lg bg-yellow-500 hover:-translate-y-1 hover:scale-110 hover:brightness-150 duration-300 flex flex-col items-center" *ngFor="let todo of todos$$ | async">
+      <div class="w-full h-48 bg-black flex justify-center">
+        <img class="h-full min-w-fit" src="https://galleria-minsk.by/assets/images/clothes-and-shoes/todo/logo-todo.jpg" alt="" (click)="selectBtn(todo.id)" />
+      </div>
+      <div class="flex justify-center flex-col items-center w-full h-3/4 box-border border-transparent border-1">
+        <span class="font-bold text-lg">ID: {{ todo.id }}</span>
+        <p *ngIf="todo.isDone === true" class="font-bold text-lg">Important</p>
+        <p *ngIf="todo.isDone === false" class="font-bold text-lg">Not important</p>
+        <span class="text-lg break-normal max-w-full">Text: {{ todo.text }}</span>
+      </div>
+      <button class="w-2/5 h-1/4 mb-2 flex justify-center items-center bg-pink-700 mx-3 rounded-xl hover:-translate-y-1 hover:scale-110 hover:brightness-200 duration-300" (click)="dltBtn(todo.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+</ng-container>
